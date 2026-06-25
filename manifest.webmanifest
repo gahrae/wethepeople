@@ -1,0 +1,14 @@
+{
+  "name": "We the People — Learn Your Rights",
+  "short_name": "We the People",
+  "description": "A bite-sized, adaptive game for learning the 27 amendments to the U.S. Constitution.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0e1730",
+  "theme_color": "#0e1730",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

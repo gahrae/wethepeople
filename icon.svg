@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="We the People">
+  <rect width="512" height="512" rx="96" fill="#0e1730"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#e3b341" stroke-width="14" opacity="0.55"/>
+  <path fill="#e3b341" d="M256 110l34 70 77 11-56 54 13 76-68-36-68 36 13-76-56-54 77-11z"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#f3ead3">We the People</text>
+</svg>

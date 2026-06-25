@@ -1,0 +1,12 @@
+{
+  "name": "we-the-people",
+  "version": "0.1.0",
+  "description": "A bite-sized, adaptive browser game for learning the amendments to the U.S. Constitution.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "audit": "node scripts/audit-questions.mjs"
+  },
+  "license": "MIT"
+}
