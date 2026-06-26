@@ -17,6 +17,10 @@ document.addEventListener("click", (e) => {
   else if (t.dataset.detail) showDetail(Number(t.dataset.detail));
   else if (t.dataset.practice) startMode("practice", Number(t.dataset.practice)); // focused drill
   else if (t.dataset.mode) startMode(t.dataset.mode);
+  else return;
+  // New view rendered: scroll back to the top so it isn't shown mid-page
+  // (e.g. tapping an amendment tile near the bottom of the home page).
+  window.scrollTo(0, 0);
 });
 
 initUI();
