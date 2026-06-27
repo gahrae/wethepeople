@@ -433,6 +433,7 @@ function showFeedback(q, correct, extra = {}) {
       ${simNote}
       ${whyWrong}
       <p class="explain">${esc(q.explain)}</p>
+      ${q.caseRef ? `<p class="case-ref"><span class="case-tag">Key case</span> <b>${esc(q.caseRef.name)}</b> (${q.caseRef.year}) — ${esc(q.caseRef.holding)}</p>` : ""}
       <p class="explain ref"><button class="link" data-detail="${q.n}">Open ${esc(BY_N[q.n].short)} ↗</button> ${hearBtn}</p>
       ${maybeSidebar(q, correct)}
       <button class="primary" id="cont">${nextLabel}</button>

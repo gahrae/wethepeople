@@ -204,6 +204,7 @@ function scenarioWhich(a) {
     answer: opts.indexOf(correctN),
     whyByChoice: opts.map((nn) => (nn === correctN ? "" : amdWhy(nn))),
     explain: sc.explain,
+    caseRef: sc.case || null,
   };
 }
 
@@ -245,6 +246,7 @@ function appliesWhich(a) {
     answer: items.findIndex((it) => it.mine),
     whyByChoice: items.map((it) => (it.mine ? "" : `That situation is governed by the ${BY_N[it.sc.amendments[0]].short}, not this one.`)),
     explain: mine.explain,
+    caseRef: mine.case || null,
   };
 }
 
@@ -264,6 +266,7 @@ function whichClause(a) {
     answer: choices.indexOf(sc.clause),
     whyByChoice: choices.map((c) => (c === sc.clause ? "" : `This situation turns on the ${sc.clause} clause, not ${c}.`)),
     explain: sc.explain,
+    caseRef: sc.case || null,
   };
 }
 
@@ -280,6 +283,7 @@ function scenarioHow(a) {
     answer: opts.findIndex((o) => o.correct),
     whyByChoice: opts.map((o) => (o.correct ? "" : o.why || "")),
     explain: sc.explain,
+    caseRef: sc.case || null,
   };
 }
 

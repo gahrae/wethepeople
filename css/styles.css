@@ -311,6 +311,13 @@ h3 small { font-weight: normal; font-size: 13px; }
   border-radius: 6px; padding: 8px 12px; margin: 8px 0; font-size: 14px; }
 .why-wrong b { color: var(--red); }
 
+/* scenario-level "key case" line shown in feedback */
+.case-ref { background: rgba(201,162,77,.10); border-left: 3px solid var(--gold);
+  border-radius: 6px; padding: 8px 12px; margin: 8px 0; font-size: 14px; color: var(--muted); }
+.case-ref b { color: var(--ink); }
+.case-tag { display: inline-block; font-size: 11px; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--gold); margin-right: 6px; }
+
 /* home mistakes link */
 .secondary-link { display: inline-block; background: none; border: 0; color: var(--gold);
   font-size: 14px; padding: 4px 0; margin: 2px 0 10px; }
