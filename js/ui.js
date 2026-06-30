@@ -23,6 +23,9 @@ const esc = (s) =>
 
 let curQ = null;
 let keyHandler = null; // active keyboard handler for the current view
+// Which amendment sections are expanded on the Landmark cases page — kept across
+// renders so opening a case and coming back doesn't collapse what you opened.
+const expandedCaseAmendments = new Set();
 
 // ---- init / global keyboard --------------------------------------------
 
@@ -303,8 +306,8 @@ export function showCases() {
     if (!amds.length) return "";
     const blocks = amds
       .map((a) => {
-        const items = byAmendment
-          .get(a.n)
+        const list = byAmendment.get(a.n);
+        const items = list
           .map(
             (c) => `
             <li>
@@ -316,10 +319,19 @@ export function showCases() {
             </li>`
           )
           .join("");
+        const open = expandedCaseAmendments.has(a.n);
         return `
-          <div class="case-amd">
-            <button class="case-amd-head" data-detail="${a.n}">${ring(a.n)}<span><b>${esc(a.short)}</b><small>${esc(a.title)}</small></span></button>
-            <ul class="case-list">${items}</ul>
+          <div class="case-amd${open ? " open" : ""}">
+            <button class="case-amd-toggle" data-amd="${a.n}" aria-expanded="${open}" aria-controls="cases-amd-${a.n}">
+              ${ring(a.n)}
+              <span class="case-amd-meta"><b>${esc(a.short)}</b><small>${esc(a.title)}</small></span>
+              <span class="case-amd-count">${list.length} case${list.length === 1 ? "" : "s"}</span>
+              <span class="case-amd-chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="case-amd-body" id="cases-amd-${a.n}">
+              <ul class="case-list">${items}</ul>
+              <button class="link case-amd-open" data-detail="${a.n}">Open ${esc(a.short)} in Your Constitution →</button>
+            </div>
           </div>`;
       })
       .join("");
@@ -331,9 +343,21 @@ export function showCases() {
     <main class="wrap detail">
       <button class="link back" data-nav="home">← Back</button>
       <h1>Landmark cases <small class="muted">${ALL_CASES.length}</small></h1>
-      <p class="muted">The Supreme Court decisions that gave these amendments their real-world meaning. Tap any case for the story behind it — what happened, who was involved, the rights at stake, and how it shapes life today.</p>
+      <p class="muted">The Supreme Court decisions that gave these amendments their real-world meaning. Tap an amendment to expand its cases, then tap any case for the story behind it — what happened, who was involved, the rights at stake, and how it shapes life today.</p>
       ${sections}
     </main>`;
+
+  // Collapse/expand each amendment section, remembering the state so returning
+  // from a case detail keeps the section the user opened expanded.
+  app().querySelectorAll(".case-amd-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const open = btn.parentElement.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      const n = Number(btn.dataset.amd);
+      if (open) expandedCaseAmendments.add(n);
+      else expandedCaseAmendments.delete(n);
+    });
+  });
 }
 
 export function showCase(slug) {

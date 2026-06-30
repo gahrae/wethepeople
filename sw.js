@@ -1,6 +1,6 @@
 // Service worker: precache the app shell for offline use. Cache-first (this is
 // a fully static app); bump CACHE to ship updates.
-const CACHE = "wtp-v13";
+const CACHE = "wtp-v15";
 // Relative URLs so this works both locally and under a GitHub Pages subpath.
 const ASSETS = [
   "./",
