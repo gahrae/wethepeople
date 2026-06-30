@@ -24,6 +24,15 @@ export const AMENDMENTS = [
       { name: "Brandenburg v. Ohio", year: 1969, holding: "Even offensive speech is protected unless it incites imminent lawless action." },
       { name: "Engel v. Vitale", year: 1962, holding: "State-sponsored prayer in public schools violates the Establishment Clause." },
       { name: "West Virginia v. Barnette", year: 1943, holding: "Government can't force students to salute the flag — it can't compel you to profess a belief." },
+      { name: "Near v. Minnesota", year: 1931, holding: "The government can't shut down a newspaper in advance just because officials dislike what it prints." },
+      { name: "New York Times Co. v. United States", year: 1971, holding: "The government couldn't stop the press from publishing the secret Pentagon Papers — prior restraint almost never survives." },
+      { name: "Citizens United v. FEC", year: 2010, holding: "Corporations and unions can spend unlimited money on independent political ads, because political spending is protected speech." },
+      { name: "Schenck v. United States", year: 1919, holding: "The government can punish speech that creates a 'clear and present danger' — the original test, later narrowed by Brandenburg." },
+      { name: "Gitlow v. New York", year: 1925, holding: "First applied the First Amendment's free-speech protection to the states — the start of 'incorporation.'" },
+      { name: "Lemon v. Kurtzman", year: 1971, holding: "Created the three-part 'Lemon test' for when government aid crosses into establishing religion." },
+      { name: "Wisconsin v. Yoder", year: 1972, holding: "Amish families couldn't be forced to send children to school past 8th grade — a religious exemption from a neutral law." },
+      { name: "Miller v. California", year: 1973, holding: "Set the modern test for unprotected 'obscenity,' judged partly by local community standards." },
+      { name: "303 Creative v. Elenis", year: 2023, holding: "The government can't force someone who creates custom expression to voice a message they disagree with." },
     ],
     scenarios: [
       {
@@ -167,6 +176,8 @@ export const AMENDMENTS = [
       { name: "District of Columbia v. Heller", year: 2008, holding: "Protects an individual right to possess a firearm for lawful purposes such as self-defense in the home." },
       { name: "McDonald v. Chicago", year: 2010, holding: "That individual right applies against state and local governments too." },
       { name: "N.Y. State Rifle & Pistol Assn. v. Bruen", year: 2022, holding: "The right extends outside the home; gun rules must fit the nation's historical tradition." },
+      { name: "United States v. Miller", year: 1939, holding: "Upheld a federal ban on sawed-off shotguns, long read as tying the right to militia service." },
+      { name: "United States v. Rahimi", year: 2024, holding: "People under domestic-violence restraining orders can be barred from owning guns." },
     ],
     scenarios: [
       {
@@ -283,6 +294,13 @@ export const AMENDMENTS = [
       { name: "Katz v. United States", year: 1967, holding: "The Fourth Amendment protects people, not places — it protects reasonable expectations of privacy." },
       { name: "Terry v. Ohio", year: 1968, holding: "A brief stop-and-frisk is allowed on reasonable suspicion, short of full probable cause." },
       { name: "Riley v. California", year: 2014, holding: "Police generally need a warrant to search a cell phone seized during an arrest." },
+      { name: "New Jersey v. T.L.O.", year: 1985, holding: "School officials can search a student on reasonable suspicion — a lower bar than the probable cause police need." },
+      { name: "Weeks v. United States", year: 1914, holding: "Created the exclusionary rule — illegally seized evidence can't be used in federal court." },
+      { name: "Olmstead v. United States", year: 1928, holding: "Warrantless wiretaps weren't a 'search' without a physical trespass — later overruled by Katz." },
+      { name: "Kyllo v. United States", year: 2001, holding: "Pointing a thermal-imaging device at a home is a search that needs a warrant." },
+      { name: "United States v. Jones", year: 2012, holding: "Secretly attaching a GPS tracker to a car and monitoring it for weeks is a search." },
+      { name: "Tennessee v. Garner", year: 1985, holding: "Police can't shoot a fleeing, unarmed suspect who poses no serious danger — deadly force is a 'seizure.'" },
+      { name: "Graham v. Connor", year: 1989, holding: "Police use of force is judged by what's 'objectively reasonable' to an officer on the scene." },
     ],
     scenarios: [
       {
@@ -392,6 +410,9 @@ export const AMENDMENTS = [
     cases: [
       { name: "Miranda v. Arizona", year: 1966, holding: "Police must warn suspects of the right to remain silent and to counsel before custodial interrogation." },
       { name: "Kelo v. City of New London", year: 2005, holding: "'Public use' for takings can include economic-development plans (a controversial reading of the Takings Clause)." },
+      { name: "Benton v. Maryland", year: 1969, holding: "Applied the Double Jeopardy Clause to the states — you can't be tried twice for the same offense." },
+      { name: "Penn Central Transportation Co. v. New York City", year: 1978, holding: "Blocking a tower over Grand Central wasn't a 'taking' — set the test for regulatory takings." },
+      { name: "Dickerson v. United States", year: 2000, holding: "Congress can't legislate Miranda away — the warnings are a constitutional rule." },
     ],
     scenarios: [
       {
@@ -496,6 +517,11 @@ export const AMENDMENTS = [
     cases: [
       { name: "Gideon v. Wainwright", year: 1963, holding: "States must provide a lawyer to criminal defendants who can't afford one." },
       { name: "Crawford v. Washington", year: 2004, holding: "The Confrontation Clause bars most out-of-court 'testimonial' statements unless the witness can be cross-examined." },
+      { name: "Powell v. Alabama", year: 1932, holding: "The Scottsboro Boys case — poor defendants facing the death penalty must be given a real lawyer." },
+      { name: "Batson v. Kentucky", year: 1986, holding: "Prosecutors can't strike people from a jury because of their race." },
+      { name: "Duncan v. Louisiana", year: 1968, holding: "Applied the right to a jury trial in serious criminal cases to the states." },
+      { name: "Faretta v. California", year: 1975, holding: "Defendants have the right to refuse a lawyer and represent themselves." },
+      { name: "Strickland v. Washington", year: 1984, holding: "Set the test for when bad lawyering is so deficient it violates the right to effective counsel." },
     ],
     scenarios: [
       {
@@ -639,6 +665,11 @@ export const AMENDMENTS = [
       { name: "Gregg v. Georgia", year: 1976, holding: "The death penalty is not inherently 'cruel and unusual' if applied under guided standards." },
       { name: "Atkins v. Virginia", year: 2002, holding: "Executing people with intellectual disability is cruel and unusual." },
       { name: "Timbs v. Indiana", year: 2019, holding: "The Excessive Fines Clause applies to the states and limits civil asset forfeiture." },
+      { name: "Furman v. Georgia", year: 1972, holding: "Halted the death penalty as so arbitrary it was cruel and unusual — forcing states to rewrite their laws." },
+      { name: "Roper v. Simmons", year: 2005, holding: "Executing anyone for a crime committed before age 18 is unconstitutional." },
+      { name: "Trop v. Dulles", year: 1958, holding: "Stripping someone's citizenship as punishment is cruel and unusual — source of 'evolving standards of decency.'" },
+      { name: "Estelle v. Gamble", year: 1976, holding: "'Deliberate indifference' to a prisoner's serious medical needs is cruel and unusual punishment." },
+      { name: "Graham v. Florida", year: 2010, holding: "Juveniles can't be sentenced to life without parole for non-homicide crimes." },
     ],
     scenarios: [
       {
@@ -764,6 +795,8 @@ export const AMENDMENTS = [
     why: "The capstone of the Bill of Rights — a statement of federalism. It reassures that the national government is one of limited, enumerated powers.",
     cases: [
       { name: "Printz v. United States", year: 1997, holding: "The federal government can't 'commandeer' state officials to carry out a federal program." },
+      { name: "South Dakota v. Dole", year: 1987, holding: "Congress can attach strings to federal funds — here, a 21 drinking age tied to highway money." },
+      { name: "Murphy v. NCAA", year: 2018, holding: "Congress can't force states to keep their own laws on the books — striking the federal sports-betting ban." },
     ],
     scenarios: [
       {
@@ -815,6 +848,8 @@ export const AMENDMENTS = [
     why: "Passed quickly to overturn Chisholm v. Georgia (1793), which had allowed a citizen of one state to sue another state — alarming states jealous of their sovereignty.",
     cases: [
       { name: "Chisholm v. Georgia", year: 1793, holding: "Allowed a citizen to sue another state — the decision this amendment was written to reverse." },
+      { name: "Hans v. Louisiana", year: 1890, holding: "States can't be sued in federal court even by their own citizens without consent." },
+      { name: "Seminole Tribe v. Florida", year: 1996, holding: "Congress generally can't use ordinary Article I powers to let private parties sue states." },
     ],
     scenarios: [
       {
@@ -914,6 +949,8 @@ export const AMENDMENTS = [
     why: "The first of the three Reconstruction Amendments after the Civil War. It constitutionalized emancipation and, uniquely, binds private individuals, not just government.",
     cases: [
       { name: "Jones v. Alfred H. Mayer Co.", year: 1968, holding: "Congress can ban private racial discrimination in property sales as a 'badge of slavery' under the 13th." },
+      { name: "Civil Rights Cases", year: 1883, holding: "Congress couldn't ban discrimination by private businesses — a narrowing of Reconstruction power (later contrasted by Jones v. Mayer)." },
+      { name: "Bailey v. Alabama", year: 1911, holding: "Jailing workers for quitting after taking an advance is unconstitutional 'peonage' — a form of forced labor." },
     ],
     scenarios: [
       {
@@ -979,6 +1016,18 @@ export const AMENDMENTS = [
       { name: "Brown v. Board of Education", year: 1954, holding: "State-segregated public schools violate Equal Protection." },
       { name: "United States v. Wong Kim Ark", year: 1898, holding: "A child born in the U.S. is a citizen under the Citizenship Clause regardless of parents' citizenship." },
       { name: "Obergefell v. Hodges", year: 2015, holding: "The right to marry is protected by Due Process and Equal Protection." },
+      { name: "Plessy v. Ferguson", year: 1896, holding: "Upheld 'separate but equal' racial segregation — the ruling Brown v. Board later overturned." },
+      { name: "Loving v. Virginia", year: 1967, holding: "Struck down state bans on interracial marriage; the freedom to marry can't turn on race." },
+      { name: "Roe v. Wade", year: 1973, holding: "Recognized a constitutional right to abortion under the right to privacy — later overturned by Dobbs (2022)." },
+      { name: "Lawrence v. Texas", year: 2003, holding: "The government can't criminalize private consensual intimacy between adults of the same sex." },
+      { name: "Dobbs v. Jackson Women's Health Organization", year: 2022, holding: "Overturned Roe v. Wade — no constitutional right to abortion; the issue returns to the states." },
+      { name: "Slaughter-House Cases", year: 1873, holding: "Read the 14th's 'privileges or immunities' clause so narrowly it was left nearly toothless." },
+      { name: "Yick Wo v. Hopkins", year: 1886, holding: "A neutral law enforced in a racially discriminatory way violates equal protection — which also covers non-citizens." },
+      { name: "Reynolds v. Sims", year: 1964, holding: "State legislative districts must hold roughly equal populations — 'one person, one vote.'" },
+      { name: "Reed v. Reed", year: 1971, holding: "First time the Court struck down a law for discriminating on the basis of sex." },
+      { name: "Korematsu v. United States", year: 1944, holding: "Upheld the WWII internment of Japanese Americans — now widely condemned and repudiated, but the source of 'strict scrutiny' for race." },
+      { name: "Bush v. Gore", year: 2000, holding: "Halted Florida's inconsistent recount on equal-protection grounds, settling the 2000 presidential election." },
+      { name: "Students for Fair Admissions v. Harvard", year: 2023, holding: "Race-conscious college admissions (affirmative action) violate equal protection." },
     ],
     scenarios: [
       {
@@ -1083,6 +1132,10 @@ export const AMENDMENTS = [
     why: "The third Reconstruction Amendment. Its promise was gutted for decades by poll taxes, literacy tests, and intimidation, then revived by the Voting Rights Act of 1965.",
     cases: [
       { name: "Smith v. Allwright", year: 1944, holding: "Race-based exclusion from primary elections ('white primaries') is unconstitutional." },
+      { name: "Shelby County v. Holder", year: 2013, holding: "Struck down the formula deciding which states need federal approval to change their voting rules." },
+      { name: "South Carolina v. Katzenbach", year: 1966, holding: "Upheld the heart of the Voting Rights Act as a valid use of Congress's power to enforce the 15th." },
+      { name: "Gomillion v. Lightfoot", year: 1960, holding: "A state can't redraw city lines into a bizarre shape to strip Black residents of the vote." },
+      { name: "Rice v. Cayetano", year: 2000, holding: "A state can't limit voting for certain offices to people of Native Hawaiian ancestry." },
       { name: "Guinn v. United States", year: 1915, holding: "Struck down a 'grandfather clause' designed to exempt white voters from literacy tests." },
     ],
     scenarios: [
@@ -1135,6 +1188,8 @@ export const AMENDMENTS = [
     why: "Overturned Pollock v. Farmers' Loan (1895), which had blocked a federal income tax. It reshaped the financial foundation of the modern federal government.",
     cases: [
       { name: "Pollock v. Farmers' Loan & Trust Co.", year: 1895, holding: "Had struck down a federal income tax — the decision this amendment reversed." },
+      { name: "Eisner v. Macomber", year: 1920, holding: "A stock dividend with no realized gain isn't taxable 'income' — a classic definition of income." },
+      { name: "Moore v. United States", year: 2024, holding: "Upheld a one-time tax on undistributed foreign earnings, sidestepping whether income must be 'realized' to be taxed." },
     ],
     scenarios: [
       {
@@ -1221,7 +1276,9 @@ export const AMENDMENTS = [
     keyPhrases: ["manufacture, sale, or transportation", "intoxicating liquors", "for beverage purposes is hereby prohibited", "concurrent power to enforce"],
     summary: "Banned the manufacture, sale, and transport of alcohol (Prohibition). Later repealed by the 21st.",
     why: "The high-water mark of the temperance movement. It fueled organized crime and was widely flouted — the only amendment later fully repealed.",
-    cases: [],
+    cases: [
+      { name: "National Prohibition Cases", year: 1920, holding: "Upheld the validity of the 18th Amendment and the law that enforced nationwide Prohibition." },
+    ],
     scenarios: [
       {
         id: "18a",
@@ -1355,7 +1412,9 @@ export const AMENDMENTS = [
     keyPhrases: ["eighteenth article of amendment", "is hereby repealed", "transportation or importation into any State", "in violation of the laws thereof"],
     summary: "Repeals Prohibition (the 18th Amendment) and lets states regulate alcohol.",
     why: "The only amendment to repeal another, and the only one ratified by state conventions rather than legislatures. It returned liquor regulation to the states.",
-    cases: [],
+    cases: [
+      { name: "Tennessee Wine & Spirits Retailers Assn. v. Thomas", year: 2019, holding: "States can't impose long residency requirements for liquor licenses to shut out out-of-state competitors." },
+    ],
     scenarios: [
       {
         id: "21a",

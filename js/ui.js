@@ -1,5 +1,6 @@
 // All rendering + event wiring. Renders into #app; lightweight router.
 import { AMENDMENTS, BY_N } from "./content.js";
+import { ALL_CASES, CASE_BY_SLUG, caseSlug } from "./cases.js";
 import {
   SKILL_META,
   getCard,
@@ -177,6 +178,13 @@ export function showHome() {
       <h2 class="section-h">Your Constitution</h2>
       <p class="muted">Each ring fills as you master an amendment — and fades if you let it go stale. The game steers practice toward your weak spots.</p>
       ${board}
+      <section class="cases-cta">
+        <button class="cases-cta-btn" data-nav="cases">
+          <span class="cases-cta-ico">⚖️</span>
+          <span class="cases-cta-text"><b>Landmark cases</b><small>The ${ALL_CASES.length} Supreme Court decisions behind these rights — what happened, who fought, and why it still matters.</small></span>
+          <span class="cases-cta-go">Browse →</span>
+        </button>
+      </section>
     </main>`;
 }
 
@@ -241,7 +249,10 @@ export function showDetail(n) {
     .join("");
 
   const cases = (a.cases || [])
-    .map((c) => `<li><b>${esc(c.name)}</b> (${c.year}) — ${esc(c.holding)}</li>`)
+    .map(
+      (c) =>
+        `<li><button class="case-link" data-case="${esc(caseSlug(c.name))}"><b>${esc(c.name)}</b> (${c.year}) — ${esc(c.holding)} <span class="case-go">Details →</span></button></li>`
+    )
     .join("");
 
   const speakBtn = speechSupported()
@@ -270,6 +281,89 @@ export function showDetail(n) {
       <button class="primary big" data-practice="${n}">Practice this amendment</button>
     </main>`;
   wireSpeakButton(document.querySelector("[data-speak]"), a.text);
+}
+
+// ---- landmark cases ----------------------------------------------------
+
+const GROUPS = ["Bill of Rights", "Reconstruction Amendments", "Later Amendments"];
+
+export function showCases() {
+  stopSpeak();
+  setKeys(null);
+
+  // Group cases by amendment, in amendment order, under their historical group.
+  const byAmendment = new Map();
+  for (const c of ALL_CASES) {
+    if (!byAmendment.has(c.n)) byAmendment.set(c.n, []);
+    byAmendment.get(c.n).push(c);
+  }
+
+  const sections = GROUPS.map((grp) => {
+    const amds = AMENDMENTS.filter((a) => a.group === grp && byAmendment.has(a.n));
+    if (!amds.length) return "";
+    const blocks = amds
+      .map((a) => {
+        const items = byAmendment
+          .get(a.n)
+          .map(
+            (c) => `
+            <li>
+              <button class="case-link" data-case="${esc(c.slug)}">
+                <span class="case-name"><b>${esc(c.name)}</b> <span class="case-year">${c.year}</span></span>
+                <span class="case-holding">${esc(c.holding)}</span>
+                <span class="case-go">Details →</span>
+              </button>
+            </li>`
+          )
+          .join("");
+        return `
+          <div class="case-amd">
+            <button class="case-amd-head" data-detail="${a.n}">${ring(a.n)}<span><b>${esc(a.short)}</b><small>${esc(a.title)}</small></span></button>
+            <ul class="case-list">${items}</ul>
+          </div>`;
+      })
+      .join("");
+    return `<div class="board-group"><h3>${grp}</h3>${blocks}</div>`;
+  }).join("");
+
+  app().innerHTML = `
+    ${topBar()}
+    <main class="wrap detail">
+      <button class="link back" data-nav="home">← Back</button>
+      <h1>Landmark cases <small class="muted">${ALL_CASES.length}</small></h1>
+      <p class="muted">The Supreme Court decisions that gave these amendments their real-world meaning. Tap any case for the story behind it — what happened, who was involved, the rights at stake, and how it shapes life today.</p>
+      ${sections}
+    </main>`;
+}
+
+export function showCase(slug) {
+  stopSpeak();
+  setKeys(null);
+  const c = CASE_BY_SLUG[slug];
+  if (!c) return showCases();
+  const a = BY_N[c.n];
+  const d = c.detail || {};
+  const field = (label, val) =>
+    val ? `<div class="case-field"><h3>${label}</h3><p>${esc(val)}</p></div>` : "";
+
+  app().innerHTML = `
+    ${topBar()}
+    <main class="wrap detail case-detail">
+      <button class="link back" data-nav="cases">← All cases</button>
+      <div class="case-head">
+        <span class="case-badge">⚖️</span>
+        <div>
+          <h1>${esc(c.name)}</h1>
+          <p class="muted">${c.year} · <button class="link inline" data-detail="${c.n}">${esc(a.short)} — ${esc(a.title)}</button></p>
+        </div>
+      </div>
+      <p class="case-ref"><span class="case-tag">The ruling</span> ${esc(c.holding)}</p>
+      ${field("What happened", d.background)}
+      ${field("Who was involved", d.who)}
+      ${field("The rights at stake", d.rights)}
+      ${field("Why it still matters", d.impact)}
+      <button class="primary big" data-practice="${c.n}">Practice the ${esc(a.short)}</button>
+    </main>`;
 }
 
 // ---- session -----------------------------------------------------------
